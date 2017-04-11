@@ -18,29 +18,81 @@ connection.connect(function(err) {
   {
   	console.log("Error occurred.")
   }
-  else
-  {
- 	 console.log("Succesful connection with id " + connection.threadId);
-  }
 });
 
 inquirer.prompt([
   {
     type: 'list',
-    name: 'userResponse',
-    message: 'Choose a method of inquiry.',
+    name: 'userResponse1',
+    message: 'Welcome to the Bamazon store, would you like to see what products we have for sale?',
     choices: [
-      'Search by artist name.',
-      'Search by artist that occur more than once.'
+    "Yes",
+    "Nah"
     ]
   }
-]).then(function(userResponse) {
-		console.log(userResponse)
-  	if (userResponse.userResponse === 'Search by artist name.')
+]).then(function(userResponse1) {
+  	if (userResponse1.userResponse1 === "Yes")
   			{
-  				console.log("Dialed in")
+  				console.log("Dialed in");
+  				// Display the "Products" table column "product_name"
+
+
+
+
+
+
+inquirer.prompt([
+  {
+    type: 'input',
+    name: 'userResponse2',
+    message:'What is the ID of the product you would like to buy?',
+
+  }
+]).then(function(userResponse2) {
+  	if (userResponse2.userResponse2 === "Yes")
+  			{
+  				console.log("Dialed in times 2");
+  				// Display the next inquirer prompt asking for quantity.
+
+
+inquirer.prompt([
+  {
+    type: 'input',
+    name: 'userResponse3',
+    message: "How many units of the product would you like to buy?",
+  }
+]).then(function(userResponse3) {
+  	if (userResponse3.userResponse3 === "Yes")
+  			{
+  				console.log("Dialed in times 3")
   			}
-	else if (userResponse.userResponse === 'Search by artist that occur more than once.')
+
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+  			}
+	else if (userResponse2.userResponse2 === "Nah")
+			{
+				console.log("Not dialed in")
+			}})
+
+
+
+
+
+  			}
+	else if (userResponse1.userResponse1 === "Nah")
 			{
 				console.log("Not dialed in")
 			}})
