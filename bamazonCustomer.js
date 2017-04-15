@@ -21,10 +21,6 @@ connection.connect(function(err) {
     console.log("Not connected.");
 
   }
-  else
-  {
-    console.log("Connected")
-  }
 });
 
 var queryString = 'SELECT * FROM Products';
@@ -57,7 +53,7 @@ connection.query(queryString, function(err, rows, fields) {
     if (err) throw err;
  
     for (var i in rows) {
-        console.log('Product: ', rows[i].product_name, 'ID #: ', rows[i].id);
+        console.log('ID #: ', rows[i].id,'Product: ', rows[i].product_name, 'Cost in dollars: ', rows[i].price);
     }
 });
  
@@ -75,9 +71,11 @@ inquirer.prompt([
 
   }
 ]).then(function(userResponse2) {
-    if (userResponse2.userResponse2 === "Yes")
+    if (userResponse2.userResponse2 > 10 )
         {
-          console.log("Dialed in times 2");
+          
+          
+          console.log("You've selected id # " + userResponse2.userResponse2 + " which corresponds to this product: " + );
           // Display the next inquirer prompt asking for quantity.
 
 
@@ -90,7 +88,7 @@ inquirer.prompt([
 ]).then(function(userResponse3) {
     if (userResponse3.userResponse3 < 1000)
         {
-          console.log("Dialed in times 3")
+          console.log("You have bought " + userResponse3.userResponse3 + " of " + )
         }
 
 
