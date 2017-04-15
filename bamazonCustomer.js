@@ -89,8 +89,13 @@ inquirer.prompt([
 ]).then(function(userResponse3) {
     if (userResponse3.userResponse3 < 1000)
         {
-          console.log("You have bought " + userResponse3.userResponse3 + " of "  )
-        }
+          var queryString = 'SELECT * FROM Products';
+
+          connection.query(queryString, function(err, rows, fields) {
+
+          console.log("You have bought " + userResponse3.userResponse3 + " of " + rows[userResponse2.userResponse2].product_name)
+        })
+                                                                      };
 
 connection.end();
 
