@@ -73,9 +73,9 @@ inquirer.prompt([
 ]).then(function(userResponse2) {
     if (userResponse2.userResponse2 > 10 )
         {
-          
-          
-          console.log("You've selected id # " + userResponse2.userResponse2 + " which corresponds to this product: " + );
+
+
+          console.log("You've selected id # " + userResponse2.userResponse2 + " which corresponds to this product: " );
           // Display the next inquirer prompt asking for quantity.
 
 
@@ -88,7 +88,7 @@ inquirer.prompt([
 ]).then(function(userResponse3) {
     if (userResponse3.userResponse3 < 1000)
         {
-          console.log("You have bought " + userResponse3.userResponse3 + " of " + )
+          console.log("You have bought " + userResponse3.userResponse3 + " of "  )
         }
 
 
