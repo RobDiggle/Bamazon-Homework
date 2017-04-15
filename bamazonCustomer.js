@@ -57,7 +57,6 @@ connection.query(queryString, function(err, rows, fields) {
     }
 });
  
-connection.end();
 
 
 
@@ -71,14 +70,16 @@ inquirer.prompt([
 
   }
 ]).then(function(userResponse2) {
-    if (userResponse2.userResponse2 > 10 )
+    if (userResponse2.userResponse2 <= 10 )
         {
+          var queryString = 'SELECT * FROM Products';
 
+          connection.query(queryString, function(err, rows, fields) {
 
-          console.log("You've selected id # " + userResponse2.userResponse2 + " which corresponds to this product: " );
+          console.log("You've selected id # " + userResponse2.userResponse2 + " which corresponds to this product: " + rows[userResponse2.userResponse2].product_name);
           // Display the next inquirer prompt asking for quantity.
 
-
+                                                                      });
 inquirer.prompt([
   {
     type: 'input',
@@ -91,6 +92,7 @@ inquirer.prompt([
           console.log("You have bought " + userResponse3.userResponse3 + " of "  )
         }
 
+connection.end();
 
 })
 
